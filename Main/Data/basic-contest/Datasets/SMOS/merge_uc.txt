@@ -1,0 +1,1146 @@
+>>>SMOS1.txt
+
+Nome: Login
+Attori: Utente registrato
+Descrizione: Permette ad un utente di loggarsi al sistema
+Precondizioni:
+L’utente non è loggato al sistema L’utente possiede username e password Compila e sottomette il form per il login
+Sequenza degli eventi
+Utente
+Sistema
+1.	Verifica che username e password abbiano lunghezza >=5. Se la condizione è rispettata passa al punto due, altrimenti notifica l'errore all'utente.
+2.	Cerca nell’archivio se username e password inseriti dall’utente sono presenti tra gli utenti loggabili
+3.	Se la ricerca ha avuto successo l’utente viene loggato al sistema
+Postcondizioni:
+•	Il sistema visualizza l’area di lavoro dell’Utente Registrato •	Interruzione della connessione al server SMOS
+<<<SMOS1.txt
+
+>>>SMOS2.txt
+Nome: LoginErrato
+Attori: Utente registrato
+Descrizione: Si verifica quando l’utente ha inserito dati di autenticazione errati.
+Precondizioni:
+•	I dati forniti per il login non sono corretti
+Sequenza degli eventi
+Utente
+Sistema
+1.	Visualizza il form di login
+Postcondizioni:
+•	L’utente può riprovare ad effettuare il login
+<<<SMOS2.txt
+
+>>>SMOS3.txt
+Nome: Logout
+Attori: Utente registrato
+Descrizione: Permette ad un utente di uscire dal sistema
+Precondizioni:
+•	L’utente è loggato al sistema •	Clicca sul pulsante di logout
+Sequenza degli eventi
+Utente
+Sistema
+1.	Visualizza il form di login
+Postcondizioni:
+•	L’utente può nuovamente loggarsi al sistema
+<<<SMOS3.txt
+
+>>>SMOS4.txt
+Nome: ModificaPassword
+Attori: Utente registrato
+Descrizione: Permette ad un utente di modificare la propria password
+Precondizioni:
+•	L’utente è loggato al sistema •	Clicca sul pulsante “Modifica Password”
+Sequenza degli eventi
+Utente
+2. Compila il form e sottomette;
+Sistema
+1.	Visualizza il form con i campi: vecchia password, nuova password, conferma nuova password.
+3.	Conferma l’avvenuta modifica della password
+Postcondizioni:
+• • •
+La password dell’utente è stata modificata L’utente annulla l’operazione Interruzione della connessione al server SMOS
+<<<SMOS4.txt
+
+>>>SMOS5.txt
+Nome: VisualizzaElencoUtenti
+Attori: Amministratore
+Descrizione: Visualizza l’elenco degli utenti presenti nel sistema
+Precondizioni:
+•	L’utente è loggato come amministratore •	L’utente clicca sul pulsante “Gestione Utenti”
+Sequenza degli eventi
+Utente
+Sistema
+1. Cerca gli utenti nell’archivio e ne visualizza l’elenco
+Postcondizioni:
+•	Il sistema visualizza l’elenco degli utenti presenti nel sistema •	Connessione al server SMOS interrotta
+<<<SMOS5.txt
+
+>>>SMOS6.txt
+Nome: NuovoUtente
+Attori: Amministratore
+Descrizione: Inserimento di un nuovo utente nel sistema
+Precondizioni:
+•	L’utente è loggato come amministratore • L’utente ha svolto il caso d’uso “VisualizzaElencoUtenti” e il sistema sta
+visualizzando l’elenco degli utenti presenti nel sistema •	L’utente clicca sul pulsante “Nuovo Utente”
+Sequenza degli eventi
+Utente
+2. Riempie i campi del form 3. Clicca sul pulsante “Salva”
+Sistema
+1. Visualizza il form di inserimento degli utenti costituito dai seguenti campi: Nome, Cognome, e-mail, cell, login, password, conferma password.
+4. Effettua dei controlli sulla validità dei dati immessi e inserisce il nuovo utente nell’archivio; nel caso in cui i dati inseriti non sono validi, attiva il caso d’uso “ErroreDati”
+Postcondizioni:
+• • • •
+E’ stato creato un nuovo utente Viene notificato l’errore dati L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS6.txt
+
+>>>SMOS7.txt
+
+Nome: VisualizzaDettagliUtente
+Attori: Amministratore
+Descrizione: Visualizza i dettagli di un utente
+Precondizioni:
+• •
+•
+L’utente è loggato come amministratore L’utente ha svolto il caso d’uso “VisualizzaElencoUtenti” e il sistema sta visualizzando l’elenco degli utenti presenti nel sistema L’utente clicca sul pulsante “Dettagli”
+Sequenza degli eventi
+Utente
+Sistema
+1. Visualizza le informazioni dettagliate dell’utente ed in particolare: Nome, Cognome, e-mail, cell, login, password.
+Postcondizioni:
+•	Il sistema visualizza le informazioni dettagliate relative ad un utente •	Connessione al server SMOS interrotta
+<<<SMOS7.txt
+
+>>>SMOS8.txt
+Nome: ModificaUtente
+Attori: Amministratore
+Descrizione: Modifica di uno o più dati riguardanti un utente presente nel sistema
+Precondizioni:
+•	L’utente è loggato come amministratore • L’utente ha svolto il caso d’uso “VisualizzaDettagliUtente” e il sistema sta
+visualizzando i dettagli di un utente • L’utente modifica una o più informazioni contenute nel form di
+visualizzazione dei dettagli dell’utente.
+Sequenza degli eventi
+Utente
+1. Clicca sul pulsante “modifica”
+Sistema
+2. Effettua dei controlli sulla validità dei dati immessi e modifica l’utente; nel caso in cui i dati inseriti non sono validi, attiva il caso d’uso “ErroreDati”
+Postcondizioni:
+• • • •
+L’utente è stato modificato Viene notificato l’errore dati L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS8.txt
+
+>>>SMOS9.txt
+Nome: EliminaUtente
+Attori: Amministratore
+Descrizione: Elimina un utente dal sistema
+Precondizioni:
+•	L’utente è loggato come amministratore • L’utente ha svolto il caso d’uso “VisualizzaDettagliUtente” e il sistema sta
+visualizzando i dettagli di un utente •	L’utente clicca sul pulsante “Elimina”
+Sequenza degli eventi
+Utente
+Sistema
+1. Elimina l’utente dall’archivio
+2. Visualizza l’elenco degli utenti aggiornato
+Postcondizioni:
+•	L’utente è stato cancellato •	Connessione al server SMOS interrotta
+<<<SMOS9.txt
+
+>>>SMOS10.txt
+Nome: Assegna/RimuoviRuoliAdUnUtente
+Attori: Amministratore
+Descrizione: Consente di assegnare o rimuovere ruoli ad un utente
+Precondizioni:
+•	L’utente è loggato come amministratore • L’utente ha svolto il caso d’uso “VisualizzaDettagliUtente” e il sistema sta
+visualizzando i dettagli di un utente •	L’utente clicca sul pulsante “Ruoli Utente”
+Sequenza degli eventi
+Utente
+2. Seleziona i ruoli da assegnare o rimuovere all’utente
+3. Clicca sul pulsante “Invia”
+Sistema
+1. Visualizza il form di gestione dei ruoli
+4. Assegna o rimuove i ruoli dell’utente come indicato dall’Amministratore
+Postcondizioni:
+• • •
+Sono modificati i ruoli dell’utente L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS10.txt
+
+>>>SMOS11.txt
+Nome: Assegna/RimuoviInsegnamentiAdUnDocente
+Attori: Amministratore
+Descrizione: Consente di assegnare o rimuovere insegnamenti ad un docente
+Precondizioni:
+•	L’utente è loggato come amministratore • L’utente ha svolto il caso d’uso “VisualizzaDettagliUtente” e il sistema sta
+visualizzando i dettagli di un docente •	L’utente clicca sul pulsante “Insegnamenti Docente”
+Sequenza degli eventi
+Utente
+2. Seleziona l'anno accademico
+4. Seleziona la classe desiderata
+6. Seleziona gli insegnamenti da associare o rimuovere al docente
+Sistema
+1. Visualizza il form di gestione degli insegnamenti per il docente in oggetto
+3. Visualizza l'elenco delle classi disponibili per l'anno selezionato
+5. Visualizza l'elenco degli insegnamenti associati a quella classe
+7. Assegna o rimuove gli insegnamenti del docente come indicato dall’Amministratore
+Postcondizioni:
+• • •
+Sono stati assegnati o rimossi uno o più insegnamenti al docente L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS11.txt
+
+>>>SMOS12.txt
+Nome: Assegna/RimuoviStudentiAdUnGenitore
+Attori: Amministratore
+Descrizione: Consente di associare nuovi studenti ad un genitore o di rimuovere le associazioni precedentemente inserite
+Precondizioni:
+•	L’utente è loggato come amministratore • L’utente ha svolto il caso d’uso “VisualizzaDettagliUtente” e il sistema sta
+visualizzando i dettagli di un genitore •	L’utente clicca sul pulsante “Parentela”
+Sequenza degli eventi
+Utente
+2. Selezione gli studenti da assegnare o rimuovere al genitore
+3. Clicca sul pulsante “Invia”
+Sistema
+1. Visualizza il form di gestione dei figli per il genitore in oggetto
+4. Assegna/Rimuove gli studenti associati ad un Genitore
+Postcondizioni:
+• • •
+Sono stati associati o rimossi una o più figli ad un genitore. L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS12.txt
+
+>>>SMOS13.txt
+Nome: VisualizzaElencoClassi
+Attori: Amministratore
+Descrizione: Permette di visualizzare l’elenco delle classi
+Precondizioni:
+•	L’utente è loggato al sistema con il ruolo di Amministratore •	L’utente clicca sul pulsante “Gestione Classi”
+Sequenza degli eventi
+Utente
+2. Seleziona l’anno accademico di interesse.
+Sistema
+1.	Permette di selezionare l’anno accademico di cui si vuole visualizzare l’elenco delle classi.
+3. Cerca le classi nell’archivio e visualizza la schermata di gestione delle classi
+4. Visualizza l’elenco delle classi dell’anno accademico selezionato.
+Postcondizioni:
+• • •
+Il sistema mostra l’elenco delle classi dell’anno accademico selezionato. L’Amministratore interrompe le operazioni. Connessione al server SMOS interrotta
+<<<SMOS13.txt
+
+>>>SMOS14.txt
+Nome: InserisciNuovaClasse
+Attori: Amministratore
+Descrizione: Inserisce una nuova classe nell’archivio
+Precondizioni:
+•	L’utente è loggato al sistema come Amministratore • L’utente ha già eseguito il caso d’uso “VisualizzaElencoClassi” e il sistema
+sta visualizzando l’elenco delle classi di un particolare anno accademico. •	L’ utente clicca sul pulsante “Nuova Classe”
+Sequenza degli eventi
+Utente
+2.	Compila il form 3.	Clicca sul pulsante “Salva”
+Sistema
+1. Il sistema mostra il form da compilare con: nome, indirizzo, anno accademico.
+4. Effettua dei controlli sulla validità dei dati immessi e inserisce la nuova classe nell’archivio; nel caso in cui i dati inseriti non sono validi, attiva il caso d’uso “ErroreDati”.
+Postcondizioni:
+• • • •
+L’utente ha inserito una classe nel sistema E’ notificato l’errore dati Connessione al server SMOS interrotta L’Amministratore interrompe l’operazione
+<<<SMOS14.txt
+
+>>>SMOS15.txt
+Nome:VisualizzaDettagliClasse
+Attori: Amministratore
+Descrizione: Permette di visualizzare i dettagli di una classe
+Precondizioni:
+•	L’utente ha già effettuato il login • L’utente ha già eseguito il caso d’uso “VisualizzaElencoClassi” e il sistema
+sta visualizzando l’elenco delle classi di un anno accademico •	Clicca sul pulsante “mostra dettagli classe”
+Sequenza degli eventi
+Utente
+Sistema
+1.	Visualizza la scherma con i dettagli di una singola classe: nome, indirizzo, anno scolastico.
+Postcondizioni:
+•	L’utente visualizza le informazioni dettagliate relative ad una classe. •	Connessione al server SMOS interrotta
+<<<SMOS15.txt
+
+>>>SMOS16.txt
+Nome: EliminaClasse
+Attori: Amministratore
+Descrizione: Elimina una classe dall’archivio
+Precondizioni:
+• • • •
+L’utente è loggato al sistema come Amministratore L’utente ha eseguito il caso d’uso “VisualizzaDettagliClasse” L’utente visualizza le informazione dettagliate di una classe L’utente Clicca sul pulsante “Elimina”
+Sequenza degli eventi
+Utente
+Sistema
+1.	Elimina la classe dall’archivio
+2.	Visualizza l’elenco delle classi aggiornato
+Postcondizioni:
+•	L’utente ha eliminato una classe •	Connessione al server SMOS interrotta
+<<<SMOS16.txt
+
+>>>SMOS17.txt
+Nome: VisualizzaElencoIndirizzi
+Attori: Amministratore
+Descrizione: Permette di visualizzare l’elenco degli Indirizzi
+Precondizioni:
+•	L’utente è loggato al sistema con il ruolo di Amministratore •	L’utente clicca sul pulsante “Gestione Indirizzi”
+Sequenza degli eventi
+Utente
+Sistema
+1.	Visualizza l’elenco degli indirizzi.
+Postcondizioni:
+•	Il sistema mostra l’elenco degli indirizzi presenti nell’archivio •	Connessione al server SMOS interrotta
+<<<SMOS17.txt
+
+>>>SMOS18.txt
+Nome: InserisciNuovoIndirizzo
+Attori: Amministratore
+Descrizione: Inserisce un nuovo indirizzo nell’archivio
+Precondizioni:
+• •
+•
+L’utente è loggato al sistema come Amministratore L’utente ha già eseguito il caso d’uso “VisualizzaElencoIndirizzi” e il sistema sta visualizzando l’elenco degli indirizzi L’utente clicca sul pulsante “Nuovo Indirizzo”
+Sequenza degli eventi
+Utente
+2.	Compila il form 3.	Clicca sul pulsante “Salva”
+Sistema
+1. Il sistema mostra il form da compilare con: nome indirizzo.
+4. Effettua dei controlli sulla validità dei dati immessi e inserisce un nuovo indirizzo nell’archivio; nel caso in cui i dati inseriti non sono validi, attiva il caso d’uso “ErroreDati”.
+Postcondizioni:
+• • • •
+L’utente ha inserito un indirizzo Viene notificato l’errore dati Connessione al server SMOS interrotta L’Amministratore interrompe l’operazione
+<<<SMOS18.txt
+
+>>>SMOS19.txt
+Nome:VisualizzaDettagliIndirizzo
+Attori: Amministratore
+Descrizione: Permette di visualizzare i dettagli di un indirizzo
+Precondizioni:
+• •
+•
+L’utente ha già effettuato il login L’utente ha già eseguito il caso d’uso “VisualizzaElencoIndirizzi” e il sistema sta visualizzando l’elenco degli indirizzi L’utente clicca sul pulsante “mostra dettagli indirizzo”
+Sequenza degli eventi
+Utente
+Sistema
+1.	Visualizza la schermata con i dettagli di un singolo indirizzo; in particolare :nome indirizzo.
+Postcondizioni:
+• L’utente visualizza le informazioni dettagliate relative ad un singolo indirizzo.
+• Connessione al server SMOS interrotta Connessione al server SMOS interrotta
+<<<SMOS19.txt
+
+>>>SMOS20.txt
+Nome: EliminaIndirizzo
+Attori: Amministratore
+Descrizione: Elimina un indirizzo dall’archivio
+Precondizioni:
+• • • •
+L’utente è loggato al sistema come Amministratore L’utente ha eseguito il caso d’uso “VisualizzaDettagliIndirizzo” L’utente visualizza le informazione dettagliate di un indirizzo L’utente clicca sul pulsante “Elimina”
+Sequenza degli eventi
+Utente
+Sistema
+1. Verifica se l'indirizzo ha classi associate; in caso affermativo mostra un messaggio di errore “Impossibile eliminare l'indirizzo, cancellare le classi associate e riprovare”, altrimenti elimina l'indirizzo.
+2. Visualizza l’elenco degli indirizzi aggiornato
+Postcondizioni:
+•	L’utente ha eliminato un indirizzo •	Connessione al server SMOS interrotta
+<<<SMOS20.txt
+
+>>>SMOS21.txt
+Nome:AssegnaRimuoviInsegnamenti
+Attori: Amministratore
+Descrizione: Assegna o rimuove uno o più insegnamenti da un indirizzo
+Precondizioni:
+• • • •
+L’utente è loggato al sistema come Amministratore L’utente ha eseguito il caso d’uso “VisualizzaDettagliIndirizzo” L’utente visualizza le informazione dettagliate di un indirizzo L’utente clicca sul pulsante “Insegnamenti Indirizzo”
+Sequenza degli eventi
+Utente
+2. Seleziona gli insegnamenti da assegnare o rimuovere all’indirizzo
+3. Clicca sul pulsante “Invia”
+Sistema
+1. Visualizza un form da cui è possibile	aggiungere	e/o rimuovere	insegnamenti all’indirizzo.
+4. Associa o rimuove gli insegnamenti selezionati all’indirizzo.
+5. Torna alla visualizzazione dei dettagli dell’indirizzo.
+Postcondizioni:
+• • •
+L’Amministratore interrompe l’operazione Connessione al server SMOS interrotta Il sistema ha modificato gli insegnamenti relativi all’indirizzo
+<<<SMOS21.txt
+
+>>>SMOS22.txt
+Nome: VisualizzaElencoInsegnamenti
+Attori: Amministratore
+Descrizione: Permette di visualizzare l’elenco degli insegnamenti
+Precondizioni:
+•	L’utente è loggato al sistema con il ruolo di Amministratore •	L’utente clicca sul pulsante “Gestione Insegnamenti”
+Sequenza degli eventi
+Utente
+Sistema
+1.
+2.
+Cerca	gli nell’archivio	e schermata	di insegnamenti
+Visualizza insegnamenti
+insegnamenti visualizza	la gestione	degli
+l’elenco	degli
+Postcondizioni:
+•	Il sistema mostra l’elenco degli insegnamenti presenti nell’archivio •	Connessione al server SMOS interrotta
+<<<SMOS22.txt
+
+>>>SMOS23.txt
+Nome:InserisciNuovoInsegnamento
+Attori: Amministratore
+Descrizione: Inserisce un nuovo insegnamento nell’archivio
+Precondizioni:
+•	L’utente è loggato al sistema come Amministratore • L’utente ha già eseguito il caso d’uso “VisualizzaElencoInsegnamenti” e il
+sistema sta visualizzando l’elenco degli insegnamenti •	L’utente clicca sul pulsante “Nuovo Insegnamento”
+Sequenza degli eventi
+Utente
+2.	Compila il form 3.	Clicca sul pulsante “Salva”
+Sistema
+1. Il sistema mostra il form da compilare	con:	nome insegnamento.
+4. Effettua dei controlli sulla validità dei dati immessi e inserisce il nuovo insegnamento nell’archivio; nel caso in cui i dati inseriti non sono validi, attiva il caso d’uso “ErroreDati”.
+Postcondizioni:
+• • • •
+L’utente ha inserito un insegnamento Viene notificato l’errore Connessione al server SMOS interrotta L’Amministratore interrompe l’operazione
+<<<SMOS23.txt
+
+>>>SMOS24.txt
+Nome:VisualizzaDettagliInsegnamento
+Attori: Amministratore
+Descrizione: Permette di visualizzare i dettagli di un insegnamento
+Precondizioni:
+•	L’utente ha già effettuato il login • L’utente ha già eseguito il caso d’uso “VisualizzaElencoInsegnamenti” e il
+sistema sta visualizzando l’elenco degli insegnamenti •	L’utente clicca sul pulsante “dettagli insegnamento”
+Sequenza degli eventi
+Utente
+Sistema
+1.	Visualizza la schermata con i dettagli di un singolo insegnamento.
+Postcondizioni:
+•	L’utente visualizza le informazioni dettagliate di un singolo insegnamento •	Connessione al server SMOS interrotta
+<<<SMOS24.txt
+
+>>>SMOS25.txt
+Nome:ModificaInsegnamento
+Attori: Amministratore
+Descrizione: Modifica dettagli di un insegnamento
+Precondizioni:
+•	L’utente è loggato al sistema come Amministratore •	L’utente ha eseguito il caso d’uso “VisualizzaDettagliInsegnamento” •	L’utente visualizza le informazione dettagliate di un insegnamento • L’utente modifica una delle informazioni contenute nel form di
+visualizzazione dei dettagli dell’insegnamento
+Sequenza degli eventi
+Utente
+Sistema
+1.	Clicca sul pulsante “Salva”
+2. Effettua dei controlli sulla validità dei dati immessi e modifica l’insegnamento nell’archivio; nel caso in cui i dati inseriti non sono validi,	attiva	il	caso	d’uso “ErroreDati”.
+3. Visualizza	l’elenco	degli insegnamenti aggiornato
+Postcondizioni:
+• • • •
+L’utente ha modificato un insegnamento Viene notificato l’errore dati Connessione al server SMOS interrotta L’Amministratore interrompe l’operazione
+<<<SMOS25.txt
+
+>>>SMOS26.txt
+Nome: EliminaInsegnamento
+Attori: Amministratore
+Descrizione: Elimina un insegnamento dall’archivio
+Precondizioni:
+• • • •
+L’utente è loggato al sistema come Amministratore L’utente ha eseguito il caso d’uso “VisualizzaDettagliInsegnamento” L’utente visualizza le informazione dettagliate di un insegnamento L’utente clicca sul pulsante “Elimina”
+Sequenza degli eventi
+Utente
+Sistema
+1.	Elimina	l’insegnamento dall’archivio
+2.	Visualizza	l’elenco	degli insegnamenti aggiornato
+Postcondizioni:
+•	L’utente ha eliminato un insegnamento •	Connessione al server SMOS interrotta
+<<<SMOS26.txt
+
+>>>SMOS27.txt
+Nome: VisualizzaElencoRegistri
+Attori: Amministratore
+Descrizione: Visualizza l’elenco dei registri per un anno accademico
+Precondizioni:
+•	L'utente deve essere loggato al sistema come Amministratore •	Clicca sul pulsante “Registro Digitale”
+Sequenza degli eventi
+Utente
+Sistema
+2. Seleziona l’anno scolastico
+1. Mostra una schermata per la selezione dell’anno accademico di interesse.
+3. Cerca nell’archivio tutti i registri digitali di quell’anno e li visualizza associati alla classe cui appartengono.
+Postcondizioni:
+•
+• •
+Il sistema sta visualizzando l’elenco dei registri riferiti ad un particolare anno accademico L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS27.txt
+
+>>>SMOS28.txt
+Nome: VisualizzaDettagliSingoloRegistro
+Attori: Amministratore
+Descrizione: Visualizza i dettagli di uno dei registri di classe
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come Amministratore L’utente deve aver svolto il caso d’uso “VisualizzaElencoRegistri” Clicca sul pulsante “Dettagli” associato ad uno dei registri.
+Sequenza degli eventi
+Utente
+Sistema
+1. Visualizza a video le informazioni contenute nel registro organizzate per data. In particolare mostra, per la data odierna,	l’elenco	degli	alunni, specificando: assenti/presenti, entrate in ritardo ed un form dal quale è possibile gestire giustifiche e note disciplinari.
+Postcondizioni:
+•	Il sistema sta visualizzando i dettagli di un registro di classe •	Connessione al server SMOS interrotta
+<<<SMOS28.txt
+
+>>>SMOS29.txt
+Nome: InserisciAssenzeAdmin
+Attori: Amministratore
+Descrizione: Digitalizzazione del Registro, inserimento dati da parte dell’Amministratore
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come Amministratore L'utente ha svolto il caso d’uso “VisualizzaDettagliSingoloRegistro” Seleziona la data in cui vuole inserire le informazioni.
+Sequenza degli eventi
+Utente
+Sistema
+2. Compila il form inserendo studenti assenti/presenti e clicca “Salva”
+1. Aggiorna la schermata visualizzata in base alla data
+3. Invia i dati al server. Il server per ogni assenza invia una e-mail di notifica	al	genitore	dell'alunno.
+4. Visualizza i dati del registro aggiornati.
+Postcondizioni:
+• I dati di assenze e ritardi sono stati inseriti nel sistema, ed il sistema ha inviato le notifiche ai genitori. Il sistema rimane sulla schermata del registro.
+•	L’amministratore interrompe l’operazione. •	Connessione al server SMOS interrotta.
+<<<SMOS29.txt
+
+>>>SMOS30.txt
+Nome: InserisciRitardiAdmin
+Attori: Amministratore
+Descrizione: Digitalizzazione del Registro, inserimento dati da parte dell’Amministratore
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come Amministratore L'utente ha svolto il caso d’uso “VisualizzaDettagliSingoloRegistro” Seleziona la data in cui vuole inserire le informazioni.
+Sequenza degli eventi
+Utente
+Sistema
+2. Compila il form inserendo studenti con ritardo e clicca “Salva”
+1. Aggiorna la schermata visualizzata in base alla data
+3.	Invia	i	dati	al	server.
+4. Visualizza i dati del registro aggiornati.
+Postcondizioni:
+• I dati dei ritardi sono stati inseriti nel sistema, ed il sistema ha inviato le notifiche ai genitori. Il sistema rimane sulla schermata del registro.
+•	L’amministratore interrompe l’operazione. •	Connessione al server SMOS interrotta.
+<<<SMOS30.txt
+
+>>>SMOS31.txt
+Nome: ModificaAssenza
+Attori: Amministratore
+Descrizione: Modifica delle assenze da parte dell'Amministratore. La modifica è da intendersi come inserimento/cancellazione dell’assenza.
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “VisualizzaDettagliSingoloRegistro” Seleziona la data in cui desidera modificare un’assenza
+Sequenza degli eventi
+Utente
+Sistema
+2. Modifica l'assenza (Inserisce o Elimina) e clicca “Salva”
+1. Aggiorna la schermata in base alla data selezionata
+3. Invia i dati modificati al server. Il sistema invia una e-mail di rettifica al genitore dell'alunno.
+Postcondizioni:
+• Il sistema ha modificato l'assenza selezionata ed ha inviato ai genitori una notifica della modifica. Il sistema rimane sulla schermata del registro.
+•	L’amministratore interrompe l’operazione •	Connessione al server SMOS interrotta
+<<<SMOS31.txt
+
+>>>SMOS32.txt
+Nome: ModificaRitardo
+Attori: Amministratore
+Descrizione: modifica di un ritardo da parte dell'Amministratore
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come Amministratore L'utente ha svolto il caso d’uso “VisualizzaDettagliSingoloRegistro” Seleziona la data in cui desidera modificare il ritardo
+Sequenza degli eventi
+Utente
+Sistema
+2. L'utente modifica il ritardo e clicca su “Salva”
+1. Aggiorna la schermata in base alla data selezionata
+3. Il sistema invia i dati modificati al server	.
+Postcondizioni:
+• Il sistema ha modificato i ritardi alla data inserita. Il sistema rimane sulla schermata del registro.
+•	L’amministratore interrompe l’operazione •	Connessione al server SMOS interrotta
+<<<SMOS32.txt
+
+>>>SMOS33.txt
+Nome: EliminaRitardo
+Attori: Amministratore
+Descrizione: Eliminazione di un ritardo da parte dell'Amministratore
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “VisualizzaDettagliSingoloRegistro” Seleziona la data in cui desidera eliminare un ritardo.
+Sequenza degli eventi
+Utente
+Sistema
+2. Elimina l’entrata in ritardo di uno studente e clicca “Salva”
+1. Aggiorna la schermata in base alla data selezionata
+3.	Elimina	l’entrata	in	ritardo dall’archivio.
+Postcondizioni:
+• Il sistema ha eliminato il ritardo. Il sistema rimane sulla schermata del registro.
+•	L’amministratore interrompe l’operazione •	Connessione al server SMOS interrotta
+<<<SMOS33.txt
+
+>>>SMOS34.txt
+Nome: VisualizzaElencoGiustifiche
+Attori: Amministratore
+Descrizione: Visualizza i l'elenco delle giustifiche
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “VisualizzaDettagliSingoloRegistro” Clicca il tasto “Giustifiche” relativo ad un alunno
+Sequenza degli eventi
+Utente
+Sistema
+1.	Mostra	tutte	le	assenze dell'alunno
+registrate scolastico selezionato Le assenze già giustificate vengono
+visualizzate in verde, quelle da giustificare in rosso
+durante	l'anno
+Postcondizioni:
+• • •
+Il sistema sta visualizzando l'elenco delle giustifiche inerenti allo studente L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS34.txt
+
+>>>SMOS35.txt
+Nome: VisualizzaElencoNote
+Attori: Amministratore
+Descrizione: Visualizza l'elenco delle note inerente allo studente
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “VisualizzaDettagliSingoloRegistro” Clicca sul pulsante “Note” associato ad uno studente
+Sequenza degli eventi
+Utente
+Sistema
+1.	Mostra tutte le note dell'alunno registrate durante l'anno scolastico
+Postcondizioni:
+• • •
+Il sistema sta visualizzando l'elenco note riferite allo studente L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS35.txt
+
+>>>SMOS36.txt
+Nome: InserisciGiustifica
+Attori: Amministratore
+Descrizione: Inserimento Giustifica
+Precondizioni:
+• • • •
+L'utente deve essere loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “VisualizzaDettagliSingoloRegistro” L'utente ha svolto il caso d'uso “VisualizzaElencoGiustifiche” L'utente clicca su una delle assenze in rosso
+Sequenza degli eventi
+Utente
+Sistema
+2. Compila il form 3. Clicca su “Salva”
+1. Mostra un form in cui inserire i campi della giustifica (data giustifica).
+4. Salva la giustifica.
+Postcondizioni:
+• I dati della giustifica sono stati inseriti nel sistema. Il sistema ritorna alla schermata del registro.
+•	L’amministratore interrompe l’operazione •	Connessione al server SMOS interrotta
+<<<SMOS36.txt
+
+>>>SMOS37.txt
+Nome: InserisciNota
+Attori: Amministratore
+Descrizione: Inserimento Note Disciplinari
+Precondizioni:
+• • • •
+L'utente deve essere loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “VisualizzaDettagliSingoloRegistro” L'utente ha già svolto il caso d'uso “VisualizzaElencoNote” L'utente clicca sul pulsante “Nuova nota”
+Sequenza degli eventi
+Utente
+Sistema
+2. Compila il form 3. Clicca su “Salva”
+1. Mostra un form con i campi della nota (studente, data, docente , descrizione).
+4. Salva la nota e invia una notifica via e-mail al genitore
+Postcondizioni:
+•
+• •
+I dati della nota sono stati inseriti nel sistema, ed il sistema ha inviato la notifica ai genitori. Il sistema ritorna alla schermata del registro. L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS37.txt
+
+>>>SMOS38.txt
+Nome: VisualizzaDettagliGiustifica
+Attori: Amministratore
+Descrizione: Visualizza i dettagli di una giustifica
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “VisualizzaElencoGiustifiche” Clicca su una delle assenze in verde
+Sequenza degli eventi
+Utente
+Sistema
+1. Mostra un form con i dettagli della giustifica e la possibilità di modificare o eliminare la giustifica.
+Postcondizioni:
+• • •
+Il sistema sta visualizzando i dettagli di una giustifica. L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS38.txt
+
+>>>SMOS39.txt
+Nome: VisualizzaDettagliNota
+Attori: Amministratore
+Descrizione: Visualizza i dettagli di una nota
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “VisualizzaElencoNote” Clicca sul pulsante “dettagli” associato ad una delle note
+Sequenza degli eventi
+Utente
+Sistema
+1. Mostra un form con i dettagli della nota: alunno, descrizione, docente, data.
+Postcondizioni:
+• • •
+Il sistema sta visualizzando i dettagli di una nota. L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS39.txt
+
+>>>SMOS40.txt
+Nome: ModificaGiustifica
+Attori: Amministratore
+Descrizione: Modifica di una Giustifica
+Precondizioni:
+•	L'utente deve essere loggato al sistema come Amministratore •	L'utente ha svolto il caso d'uso “VisualizzaDettagliGiustifica” e il sistema sta
+visualizzando i dettagli di una giustifica
+Sequenza degli eventi
+Utente
+Sistema
+1. Modifica uno o più campi del form	visualizzato:	data giustifica.
+2. Clicca su “Salva”
+3.	Modifica	la	giustifica.
+Postcondizioni:
+• • •
+La giustifica è stata modificata. Il sistema ritorna alla schermata del registro. L’amministratore interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS40.txt
+
+>>>SMOS41.txt
+Nome: ModificaNota
+Attori: Amministratore
+Descrizione: Modifica di una Nota Disciplinare
+Precondizioni:
+•	L'utente deve essere loggato al sistema come Amministratore •	L'utente ha svolto il caso d’uso “VisualizzaDettagliNota”
+Sequenza degli eventi
+Utente
+Sistema
+1. L'utente modifica uno o più campi del	form	visualizzato:	Studente, descrizione,	docente,	data.
+2. L'utente clicca su “Salva”
+3. Il sistema salva le modifiche
+Postcondizioni:
+• I dati della nota sono stati modificati. Il sistema ritorna alla schermata del registro.
+•	L’amministratore interrompe l’operazione •	Connessione al server SMOS interrotta
+<<<SMOS41.txt
+
+>>>SMOS42.txt
+Nome: EliminaGiustifica
+Attori: Amministratore
+Descrizione: Elimina Giustifica
+Precondizioni:
+•	L'utente deve essere loggato al sistema come Amministratore • L'utente ha svolto il caso d'uso “VisualizzaDettagliGiustifica” e il
+sistema sta visualizzando i dettagli di una giustifica. •	Clicca su “Elimina”
+Sequenza degli eventi
+Utente
+Sistema
+1. Elimina la giustifica.
+Postcondizioni:
+• La giustifica è stata eliminata dal sistema. Il sistema ritorna alla schermata del registro.
+•	L’amministratore interrompe l’operazione •	Connessione al server SMOS interrotta
+<<<SMOS42.txt
+
+>>>SMOS43.txt
+Nome: EliminaNota
+Attori: Amministratore
+Descrizione: Eliminazione Note Disciplinari
+Precondizioni:
+•	L'utente deve essere loggato al sistema come Amministratore • L'utente ha svolto il caso d'uso “VisualizzaDettagliNota” e il sistema sta
+visualizzando I dettagli di una nota •	L'utente clicca il pulsante “Elimina”
+Sequenza degli eventi
+Utente
+Sistema
+1. Il sistema invia una notifica di errata corrige ai genitori dello studente, poi elimina i dati della nota dall’archivio.
+Postcondizioni:
+• La nota è stata cancellata, ed il sistema ha inviato la notifica ai genitori. Il sistema ritorna alla schermata del registro.
+•	L’amministratore interrompe l’operazione •	Connessione al server SMOS interrotta
+<<<SMOS43.txt
+
+>>>SMOS44.txt
+Nome: EffettuaMonitoraggioStudenti
+Attori: Amministratore
+Descrizione: Consente di interrogare il sistema circa il numero di assenze e note associate agli studenti
+Precondizioni:
+•	L’utente è loggato al sistema come amministratore •	L’utente clicca sul pulsante “Monitoraggio Studenti”
+Sequenza degli eventi
+Utente
+Sistema
+1. Cerca nell'archivio gli studenti che abbiano, per l'anno scolastico in corso un numero di assenze e note superiori ad una soglia prestabilita.
+2. Visualizza una schermata di presentazione dei dati ottenuti.
+Postcondizioni: :
+•	Sono state le informazioni circa assenze e note degli alunni. •	Connessione al server SMOS interrotta.
+<<<SMOS44.txt
+
+>>>SMOS45.txt
+Nome: VisualizzazioneDiUnaPagella
+Attori: Amministratore
+Descrizione: Visualizzazione di una pagella
+Precondizioni:
+•	L'utente si è loggato al sistema come Amministratore •	L’utente clicca sul pulsante “Pagelle online”
+Sequenza degli eventi
+Utente
+1. Seleziona l’anno accademico
+3. Sceglie la classe dell'alunno di cui vuole visualizzare la pagella
+5.	Seleziona	l'alunno	e	il quadrimestre di cui visualizzare la pagella cliccando sul relativo pulsante.
+Sistema
+2. Visualizza l’elenco delle classi presenti nel sistema con accanto un pulsante “Pagelle” associato ad ogni classe
+4. Visualizza l'elenco degli alunni della classe scelta dall'utente
+6.	Visualizza la pagella dell'alunno scelto riferita al quadrimestre selezionato.
+Postcondizioni:
+• • •
+Il sistema visualizza la pagella di uno studente L’utente interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS45.txt
+
+>>>SMOS46.txt
+Nome: InserimentoPagella
+Attori: Amministratore
+Descrizione: Inserimento di una pagella di uno studente eseguito dall’Amministratore
+Precondizioni:
+•	L'utente si è loggato al sistema come Amministratore •	L’utente clicca sul pulsante “Pagelle online”
+Sequenza degli eventi
+Utente
+2. Sceglie la classe dell'alunno di cui inserire la pagella
+4. Seleziona l'alunno a cui inserire la pagella cliccando sul relativo tasto
+6. Inserisce i voti della pagella, tutti o in parte, e clicca sul tasto “salva”
+Sistema
+1. Visualizza l’elenco delle classi presenti nel sistema riferito all’anno accademico in corso con accanto un pulsante “Pagelle” associato ad ogni classe
+3. Visualizza l'elenco degli alunni della classe scelta dall'utente
+5. Visualizza il form per l'inserimento di una pagella
+7. Inserisce i voti inseriti nell'archivio e riporta l'utente alla pagina di visualizzazione degli studenti della classe.
+Postcondizioni:
+• • •
+Nel sistema è stata aggiunta la pagella relativa ad un alunno. L’utente interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS46.txt
+
+>>>SMOS47.txt
+Nome: ModificaDiUnaPagella
+Attori: Amministratore
+Descrizione: Caso d’uso per modificare la pagella di un alunno
+Precondizioni:
+• • •
+L'utente si è loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “VisualizzazioneDiUnaPagella ” L’utente clicca sul tasto di modifica
+Sequenza degli eventi
+Utente
+2. Inserisce i nuovi dati e clicca il tasto di conferma
+Sistema
+1. Visualizza il form con i campi da poter modificare tra cui i voti delle diverse materie
+3. Il sistema visualizza un messaggio di conferma e visualizza il form con l'elenco degli alunni
+Postcondizioni:
+• • •
+Una pagella relativa ad un alunno viene modificata L’utente interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS47.txt
+
+>>>SMOS48.txt
+Nome: CancellazioneDiUnaPagella
+Attori: Amministratore
+Descrizione: L’Amministratore elimina una pagella dal sistema
+Precondizioni:
+• • •
+L'utente si è loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “Visualizzazione di una pagella” L’utente clicca sul tasto “cancella”
+Sequenza degli eventi
+Utente
+2. L'utente accetta la cancellazione premendo il tasto di conferma
+Sistema
+1. Il sistema visualizza un form per confermare la cancellazione
+3. Visualizza un messaggio di corretta cancellazione e visualizza il form con l'elenco delle classi
+Postcondizioni:
+•	Una pagella relativa ad un alunno viene cancellata •	Connessione al server SMOS interrotta
+<<<SMOS48.txt
+
+>>>SMOS49.txt
+Nome: VisualizzaRichiesteDiIscrizione
+Attori: Amministratore
+Descrizione: Consente all'amministratore di visualizzare l'elenco delle richieste di iscrizione giunte al sistema
+Precondizioni:
+•	L'utente è loggato al sistema come amministratore •	L'utente clicca sul pulsante “Visualizza Elenco Richieste di Iscrizione”
+presente nella home
+Sequenza degli eventi
+Utente
+Sistema
+1 . Visualizza l'elenco delle iscrizioni ancora da attivare.
+Postcondizioni:
+•
+• •
+L’utente sta visualizzando l'elenco di richieste di iscrizione al sistema da parte degli studenti L'utente interrompe l'operazione Connessione al server SMOS interrotta
+<<<SMOS49.txt
+
+>>>SMOS50.txt
+Nome: AccettaIscrizioneStudente
+Attori: Amministratore
+Descrizione: Consente all'amministratore di accettare l'iscrizione al sistema di uno studente
+Precondizioni:
+•	L'utente ha già svolto il caso d'uso “Visualizza Richieste di Iscrizione” •	L'utente clicca sul pulsante “Accetta” associato ad una richiesta di iscrizione
+Sequenza degli eventi
+Utente
+Sistema
+1 . Attiva il nuovo utente nel sistema.
+2. Visualizza l'elenco delle iscrizioni ancora da attivare
+Postcondizioni:
+• • •
+L’utente ha accettato una richiesta di iscrizione al sistema L'utente interrompe l'operazione Connessione al server SMOS interrotta
+<<<SMOS50.txt
+
+>>>SMOS51.txt
+Nome: RifiutaIscrizioneStudente
+Attori: Amministratore
+Descrizione: Consente all'amministratore di rifiutare l'iscrizione al sistema di uno studente
+Precondizioni:
+•	L'utente ha già svolto il caso d'uso “Visualizza Richieste di Iscrizione” •	L'utente clicca sul pulsante “Rifiuta” associato ad una richiesta di iscrizione
+Sequenza degli eventi
+Utente
+Sistema
+1. Elimina la richiesta di iscrizione al sistema.
+2. Visualizza l'elenco delle iscrizioni ancora da attivare
+Postcondizioni:
+• • •
+L’utente ha rifiutato una richiesta di iscrizione al sistema L'utente interrompe l'operazione Connessione al server SMOS interrotta
+<<<SMOS51.txt
+
+>>>SMOS52.txt
+Nome: Ricerca EntitaAttori: Amministratore
+Descrizione: Consente all'amministratore di ricercare nel sistema tutte le entità caratterizzate dalle keywords inserite
+Precondizioni:
+•	L'utente è loggato al sistema come amministrator •	L'utente inserisce il testo da cercare e clicca sul pulsante “Ricerca”
+Sequenza degli eventi
+Utente
+Sistema
+1	. Visualizza	l'elenco	delle	entità correlate alla keywords ricercate; in particolare vengono mostrate in una lista attiva: Classi, Insegnamenti, Indirizzi, Utenti trovati.
+Postcondizioni:
+• L’utente sta visualizzando una lista attiva di entità corrispondenti alle keyword inserite.
+•	L'utente interrompe l'operazione •	Connessione al server SMOS interrotta
+<<<SMOS52.txt
+
+>>>SMOS53.txt
+Nome: VisualizzaElencoClassi
+Attori: Personale ATA
+Descrizione: Visualizzazione delle classi
+Precondizioni:
+•	L'utente deve essere loggato al sistema come personale ATA
+Sequenza degli eventi
+Utente
+Sistema
+1. Il sistema mostra all'utente una schermata con tutte le classi presenti nel database, con un tasto per accedere al registro di ogni classe.
+Postcondizioni:
+All'utente viene visualizzata una lista da cui scegliere la classe.
+<<<SMOS53.txt
+
+>>>SMOS54.txt
+Nome: InserisciAssenze
+Attori: Personale ATA
+Descrizione: Digitalizzazione del Registro, raccolta dati dal personale ATA classe per classe
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come personale ATA L'utente ha svolto il caso d'uso VisualizzaElencoClassiATA Selezione una classe di cui inserire i dati nel sistema
+Sequenza degli eventi
+Utente
+Sistema
+2. L'utente seleziona gli studenti assenti 3. Clicca su salva
+1. Mostra all'utente una schermata con gli alunni e dei radio button per selezionare se un alunno è assente o presente. Di default l'alunno è presente.
+4. Il sistema invia i dati al server. Il server per ogni assenza invia una e- mail di notifica al genitore dell'alunno.
+Postcondizioni:
+• I dati di assenze sono stati inseriti nel sistema, ed il sistema ha inviato le notifiche ai genitori. All'utente è mostrata di nuovo la schermata iniziale.
+•	Connessione al server SMOS interrotta. •	L’utente interrompe l’operazione.
+<<<SMOS54.txt
+
+>>>SMOS55.txt
+Nome: InserisciRitardiAta
+Attori: Personale ATA
+Descrizione: Digitalizzazione del Registro, raccolta dati dal personale ATA classe per classe
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come personale ATA L'utente ha svolto il caso d'uso VisualizzaElencoClassiATA Seleziona una classe di cui inserire i dati nel sistema
+Sequenza degli eventi
+Utente
+Sistema
+2.	L'utente	seleziona	i	ritardi 3. L'utente clicca “Conferma”
+1. Il sistema mostra all'utente una schermata con tutti gli alunni presenti, con a fianco una checkbox “ritardo”. Se selezionata si attivano dei campi di select a lato per selezionare l'ora del ritardo
+4. Il sistema invia i dati al server.
+Postcondizioni:
+•
+• •
+I dati dei ritardi sono stati inseriti nel sistema. All'utente è mostrata di nuovo la schermata iniziale. Connessione al server SMOS interrotta. L’utente interrompe le operazioni.
+<<<SMOS55.txt
+
+>>>SMOS56.txt
+Nome: VisualizzaElencoClassiDocente
+Attori: Docente
+Descrizione: Il presente caso d'uso consente ad un docente di visualizzare l'elenco delle classi in cui insegna
+Precondizioni:
+•	L’utente è loggato al sistema come docente •	L’ utente clicca il pulsante “Registro Digitale”
+Sequenza degli eventi
+Utente
+Sistema
+2. Seleziona l'anno accademico di interesse.
+1. Visualizza l'elenco degli anni accademici in cui è presente almeno una classe in cui il docente insegna.
+3. Visualizza le classi associate all'anno scolastico selezionato.
+Postcondizioni:
+•	E’ stata mostrata la lista di tutte le classi in cui insegna il docente •	Connessione al server SMOS interrotta.
+<<<SMOS56.txt
+
+>>>SMOS57.txt
+Nome: VisualizzaRegistro
+Attori: Docente
+Descrizione: Visualizzazione del registro di classe
+Precondizioni:
+•	L’utente è loggato al sistema come docente • L’ utente ha svolto il caso d’ uso “VisualizzaElencoClassi” e il sistema sta
+visualizzando l’ elenco di tutte le classi in cui insegna •	L’ utente clicca sul pulsante “Registro” associato ad una delle classi
+Sequenza degli eventi
+Utente
+Sistema
+1.	Visualizza	le	informazioni relative al registro di classe ed in particolare:Data, Assenze, Note disciplinari, Ritardi e Giustifiche.
+Postcondizioni: :
+•	Sono state mostrate le informazioni relative al registro di classe •	Connessione al server SMOS interrotta.
+<<<SMOS57.txt
+
+>>>SMOS58.txt
+Nome: VisualizzazioneDiUnaPagellaDocente
+Attori: Docente
+Descrizione: Visualizzazione di una pagella
+Precondizioni:
+•	L'utente si è loggato al sistema come Docente •	L’utente clicca sul pulsante “Pagelle on-line”
+Sequenza degli eventi
+Utente
+Sistema
+2. Seleziona l'anno accademico di interesse.
+4.	Seleziona	una	delle	classi visualizzate.
+6. Seleziona l'alunno di cui visualizzare la pagella e il quadrimestre di riferimento	cliccando	sull'apposito pulsante.
+1	. Visualizza	l'elenco	degli	anni accademici in cui è presente almeno una classe in cui il docente insegna.
+3. Visualizza le classi associate all'anno scolastico selezionato.
+5. Visualizza l'elenco degli alunni della classe scelta dall'utente
+7. Visualizza la pagella dell'alunno scelto	riferita	al	quadrimestre specificato.
+Postcondizioni:
+• • •
+Il sistema visualizza la pagella di uno studente L’utente interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS58.txt
+
+>>>SMOS59.txt
+Nome: VisualizzazioneDiUnaPagellaStudente
+Attori: Studente
+Descrizione: Viene visualizzata la pagella dell’alunno che lo richiede
+Precondizioni:
+•	L'utente si è loggato al sistema come Studente •	L’utente clicca su “pagella online”
+Sequenza degli eventi
+Utente
+Sistema
+2. Seleziona la pagella di interesse
+1. Il sistema visualizza le pagelle dello studente loggato presenti in archivio
+3. Visualizza i dettagli della pagella selezionata
+Postcondizioni:
+•	Il sistema visualizza la pagella di un alunno •	Connessione al server SMOS interrotta
+<<<SMOS59.txt
+
+>>>SMOS60.txt
+Nome: VisualizzaDatiScolasticiStudente
+Attori: Studente
+Descrizione: Visualizzazione delle informazioni scolastiche riguardanti l’ utente
+Precondizioni:
+•	L’utente è loggato al sistema come studente •	L’utente clicca il pulsante “Registro Digitale”
+Sequenza degli eventi
+Utente
+Sistema
+1.
+2.
+Cerca nell’ archivio i dati relativi al registro della classe a cui appartiene lo studente
+Visualizza i dati relativi allo studente ed in particolare: Data, Assenze, Note disciplinari, Ritardi e Giustifiche.
+Postcondizioni:
+•	Sono stati mostrati i dati del registro di classe relativi allo studente •	Connessione al server SMOS interrotta
+<<<SMOS60.txt
+
+>>>SMOS61.txt
+Nome: VisualizzaDatiStudenti
+Attori: Genitore
+Descrizione: Il presente caso d'uso consente ad un genitore di visualizzare le informazioni relative ai propri figli
+Precondizioni:
+•	L’utente è loggato al sistema come genitore •	L’ utente clicca il pulsante “Registro” associato ad uno dei suoi figli
+Sequenza degli eventi
+Utente
+Sistema
+1. Visualizza	una	tabella riassuntiva con le informazioni relative	ai	figli	ed	in particolare:Data, Assenze, Note disciplinari,	Ritardi	e Giustifiche.
+Postcondizioni:
+•	Sono state mostrate le informazioni relative ad uno dei figli dell’ utente •	Connessione al server SMOS interrotta
+<<<SMOS61.txt
+
+>>>SMOS62.txt
+Nome: VisualizzazioneDiUnaPagella
+Attori: Genitore
+Descrizione: Viene visualizzata la pagella dell’alunno richiesto
+Precondizioni:
+•	L'utente si è loggato al sistema come Genitore •	L’utente clicca sul pulsante pagella associato ad uno dei suoi figli
+Sequenza degli eventi
+Utente
+Sistema
+2. Seleziona la pagella di interesse
+1. Visualizza le pagelle dello studente selezionato
+3. Visualizza i dettagli della pagella selezionata
+Postcondizioni:
+•	Il sistema visualizza la pagella di uno studente •	Connessione al server SMOS interrotta
+<<<SMOS62.txt
+
+>>>SMOS63.txt
+Nom: EffettuaMonitoraggioStudenti
+Attori: Direzione
+Descrizione: Consente di visualizzare gli studenti con un numero di note e assenze superiore ad una soglia indicata dall'utente
+Precondizioni:
+•	L’utente è loggato al sistema come direzione •	L’ utente clicca sul pulsante “Monitoraggio Studenti”
+Sequenza degli eventi
+Utente
+Sistema
+1. Cerca gli studenti con un numero di assenze e note superiori alla soglia stabilita.
+2.	Visualizza	le	informazioni recuperate.
+Postcondizioni: :
+•	Sono state visualizzate le informazioni inerenti i dati raccolti •	Connessione al server SMOS interrotta.
+<<<SMOS63.txt
+
+>>>SMOS64.txt
+Nome: VisualizzaElencoRegistri
+Attori: Direzione
+Descrizione: Visualizza l’elenco dei registri per un anno accademico
+Precondizioni:
+•	L'utente deve essere loggato al sistema come Direzione •	L’ utente clicca sul pulsante “Registro Digitale”
+Sequenza degli eventi
+Utente
+Sistema
+2. Seleziona l’anno accademico
+1.Mostra una schermata per la selezione dell’anno accademico di interesse.
+3. Cerca nell’archivio tutti i registri digitali di quell’anno e li visualizza associati alla classe cui appartengono
+Postcondizioni:
+•
+• •
+Il sistema sta visualizzando l’elenco dei registri riferiti ad un particolare anno accademico La direzione interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS64.txt
+
+>>>SMOS65.txt
+Nome: VisualizzaRegistro
+Attori: Direzione
+Descrizione: Dettagli relativi al registro di una classe
+Precondizioni:
+• •
+•
+L’ utente è loggato al sistema direzione L’ utente ha svolto il caso d’ uso “VisualizzaElencoRegistri” e il sistema sta visualizzando l’ elenco di tutti i registri di un particolare anno accademico L’utente clicca il pulsante “Registro” associato ad una delle classi
+Sequenza degli eventi
+Utente
+Sistema
+1. Visualizza	a	video	le informazioni	contenute	nel registro organizzate per data. In particolare mostra, per la data selezionata	l’elenco	degli alunni,	specificando: assenti/presenti,	entrate	in ritardo ed un form dal quale è possibile gestire giustifiche e note disciplinari.
+Postcondizioni:
+•	Sono state mostrate le informazioni relative al registro di classe •	Connessione al server SMOS interrotta
+<<<SMOS65.txt
+
+>>>SMOS66.txt
+Nome: VisualizzazioneDiUnaPagella
+Attori: Direzione
+Descrizione: Visualizzazione di una pagella
+Precondizioni:
+•	L'utente si è loggato al sistema come Direzione •	L’utente clicca sul pulsante “Pagelle online”
+Sequenza degli eventi
+Utente
+Sistema
+1. Seleziona l’anno accademico
+3 . Sceglie la classe dell'alunno di cui vuole visualizzare la pagella
+5. Seleziona l'alunno di cui visualizzare la pagella e il quadrimestre di interesse cliccando sul relativo tasto
+2. Visualizza l’elenco delle classi presenti nel sistema con accanto un pulsante “Pagelle” associato ad ogni classe
+4. Visualizza l'elenco degli alunni della classe scelta dall'utente
+6. Visualizza la pagella dell'alunno scelto	riferita	al	semestre selezionato.
+Postcondizioni:
+• • •
+Il sistema visualizza la pagella di uno studente L’utente interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS66.txt
+
+>>>SMOS67.txt
+Nome: RegistrazioneAlSito
+Attori: Visitatore
+Descrizione: Consente ad uno studente di registrarsi al sistema
+Precondizioni:
+•	L'utente clicca sul pulsante “Registrati” presente nella home page
+Sequenza degli eventi
+Utente
+Sistema
+2. Riempie i campi del form 3. Sottomette il form
+1 . Visualizza il form di registrazione contenente: Nome, Cognome, Cellulare, e-mail, username, password, conferma password.
+4. Inserisce la richiesta di iscrizione nel sistema
+Postcondizioni:
+• • •
+L’utente ha effettuato richiesta di iscrizione al sistema L'utente interrompe l'operazione Connessione al server SMOS interrotta
+<<<SMOS67.txt
+

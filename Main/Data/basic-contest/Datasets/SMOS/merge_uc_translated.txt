@@ -1,0 +1,1146 @@
+>>> SMOS1.txt
+
+Name: Login
+Actors: Registered user
+Description: Allows a user to log into the system
+Preconditions:
+The user is not logged in to the system The user has a username and password Fill in and submit the login form
+Sequence of events
+User
+System
+1. Verify that username and password have length> = 5. If the condition is met, go to step two, otherwise notify the user of the error.
+2. Search the archive if the username and password entered by the user are present among the logged in users
+3. If the search was successful, the user is logged into the system
+Postconditions:
+• The system displays the Registered User's work area • Interruption of the connection to the SMOS server
+<<< SMOS1.txt
+
+>>> SMOS2.txt
+Name: LoginErrato
+Actors: Registered user
+Description: Occurs when the user has entered incorrect authentication data.
+Preconditions:
+• The data provided for login is not correct
+Sequence of events
+User
+System
+1. View the login form
+Postconditions:
+• The user can try to login again
+<<< SMOS2.txt
+
+>>> SMOS3.txt
+Name: Logout
+Actors: Registered user
+Description: Allows a user to log out of the system
+Preconditions:
+• The user is logged in to the system • Click on the logout button
+Sequence of events
+User
+System
+1. View the login form
+Postconditions:
+• The user can log in to the system again
+<<< SMOS3.txt
+
+>>> SMOS4.txt
+Name: ChangePassword
+Actors: Registered user
+Description: Allows a user to change their password
+Preconditions:
+• The user is logged in to the system • Click on the "Change Password" button
+Sequence of events
+User
+2. Fill out the form and submit;
+System
+1. View the form with the fields: old password, new password, confirm new password.
+3. Confirm that the password has been changed
+Postconditions:
+• • •
+The user's password has been changed The user cancels the operation Interrupting the connection to the SMOS server
+<<< SMOS4.txt
+
+>>> SMOS5.txt
+Name: View User List
+Actors: Administrator
+Description: Displays the list of users on the system
+Preconditions:
+• The user is logged in as an administrator • The user clicks on the "User Management" button
+Sequence of events
+User
+System
+1. Search for users in the archive and view the list
+Postconditions:
+• The system displays the list of users in the system • Connection to the SMOS server interrupted
+<<< SMOS5.txt
+
+>>> SMOS6.txt
+Name: New User
+Actors: Administrator
+Description: Insertion of a new user in the system
+Preconditions:
+• The user is logged in as an administrator • The user has carried out the use case "View User List" and the system is
+viewing the list of users in the system • The user clicks on the "New User" button
+Sequence of events
+User
+2. Fill in the form fields 3. Click on the "Save" button
+System
+1. Displays the user entry form consisting of the following fields: Name, Surname, e-mail, cell, login, password, confirm password.
+4. Checks the validity of the data entered and enters the new user in the archive; in the event that the data entered is invalid, activate the "Data Error" use case
+Postconditions:
+• • • •
+A new user has been created The data error is notified The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS6.txt
+
+>>> SMOS7.txt
+
+Name: ViewUserDetails
+Actors: Administrator
+Description: Displays the details of a user
+Preconditions:
+• •
+•
+The user is logged in as an administrator The user has carried out the use case "View User List" and the system is viewing the list of users in the system The user clicks on the "Details" button
+Sequence of events
+User
+System
+1. View the user's detailed information and in particular: Name, Surname, e-mail, cell, login, password.
+Postconditions:
+• The system displays detailed information about a user. • Connection to the SMOS server interrupted
+<<< SMOS7.txt
+
+>>> SMOS8.txt
+Name: EditUser
+Actors: Administrator
+Description: Modification of one or more data concerning a user present in the system
+Preconditions:
+• The user is logged in as an administrator • The user has carried out the use case "View User Details" and the system is
+viewing the details of a user • The user modifies one or more information contained in the form
+display of user details.
+Sequence of events
+User
+1. Click on the "edit" button
+System
+2. Carry out checks on the validity of the data entered and modify the user; in the event that the data entered is invalid, activate the "Data Error" use case
+Postconditions:
+• • • •
+The user has been changed The data error is notified The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS8.txt
+
+>>> SMOS9.txt
+Name: DeleteUser
+Actors: Administrator
+Description: Deletes a user from the system
+Preconditions:
+• The user is logged in as an administrator • The user has carried out the use case "View User Details" and the system is
+viewing the details of a user • The user clicks on the "Delete" button
+Sequence of events
+User
+System
+1. Delete the user from the archive
+2. View the updated list of users
+Postconditions:
+• The user has been deleted. • Connection to the SMOS server interrupted
+<<< SMOS9.txt
+
+>>> SMOS10.txt
+Name: Assign / RemoveRolesToUser
+Actors: Administrator
+Description: Allows you to assign or remove roles to a user
+Preconditions:
+• The user is logged in as an administrator • The user has carried out the use case "View User Details" and the system is
+viewing the details of a user • The user clicks on the "User Roles" button
+Sequence of events
+User
+2. Select the roles to assign or remove to the user
+3. Click on the "Submit" button
+System
+1. View the role management form
+4. Assign or remove user roles as indicated by the Administrator
+Postconditions:
+• • •
+User roles are changed The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS10.txt
+
+>>> SMOS11.txt
+Name: Assign / Remove Teachings To Teacher
+Actors: Administrator
+Description: Allows you to assign or remove courses to a teacher
+Preconditions:
+• The user is logged in as an administrator • The user has carried out the use case "View User Details" and the system is
+viewing the details of a teacher • The user clicks on the "Teacher Teachings" button
+Sequence of events
+User
+2. Select the academic year
+4. Select the desired class
+6. Select the courses to associate or remove with the teacher
+System
+1. View the teaching management form for the teacher in question
+3. Displays the list of classes available for the selected year
+5. View the list of courses associated with that class
+7. Assign or remove teacher's teachings as indicated by the Administrator
+Postconditions:
+• • •
+One or more teachings have been assigned or removed to the teacher The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS11.txt
+
+>>> SMOS12.txt
+Name: Assign / Remove Students to Parent
+Actors: Administrator
+Description: Allows you to associate new students with a parent or to remove previously entered associations
+Preconditions:
+• The user is logged in as an administrator • The user has carried out the use case "View User Details" and the system is
+viewing the details of a parent • The user clicks on the "Relationship" button
+Sequence of events
+User
+2. Select the students to assign or remove to the parent
+3. Click on the "Submit" button
+System
+1. View the child management form for the parent in question
+4. Assign / Remove students associated with a Parent
+Postconditions:
+• • •
+One or more children have been associated with or removed from a parent. The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS12.txt
+
+>>> SMOS13.txt
+Name: ViewList of Classes
+Actors: Administrator
+Description: Allows you to view the list of classes
+Preconditions:
+• The user is logged into the system with the role of Administrator • The user clicks on the "Class Management" button
+Sequence of events
+User
+2. Select the academic year of interest.
+System
+1. Allows you to select the academic year for which you want to view the list of classes.
+3. Search for classes in the archive and view the class management screen
+4. View the list of classes of the selected academic year.
+Postconditions:
+• • •
+The system shows the list of classes of the selected academic year. The Administrator interrupts the operations. Connection to the SMOS server interrupted
+<<< SMOS13.txt
+
+>>> SMOS14.txt
+Name: InsertNewClass
+Actors: Administrator
+Description: Adds a new class to the archive
+Preconditions:
+• The user is logged into the system as Administrator • The user has already run the use case "View Class List" and the system
+is viewing the list of classes for a particular academic year. • The user clicks on the "New Class" button
+Sequence of events
+User
+2. Fill out the form 3. Click on the "Save" button
+System
+1. The system shows the form to be filled in with: name, address, academic year.
+4. Checks the validity of the data entered and enters the new class in the archive; in the event that the data entered is invalid, activate the "Data Error" use case.
+Postconditions:
+• • • •
+The user has entered a class in the system The data error is notified Connection to the SMOS server interrupted The Administrator interrupts the operation
+<<< SMOS14.txt
+
+>>> SMOS15.txt
+Name: ViewClassDetails
+Actors: Administrator
+Description: Allows you to view the details of a class
+Preconditions:
+• The user has already logged in • The user has already run the use case "ViewClass List" and the system
+is viewing the list of classes for an academic year • Click on the "show class details" button
+Sequence of events
+User
+System
+1. View the screen with the details of a single class: name, address, school year.
+Postconditions:
+• The user views detailed information relating to a class. • Connection to the SMOS server interrupted
+<<< SMOS15.txt
+
+>>> SMOS16.txt
+Name: DeleteClass
+Actors: Administrator
+Description: Delete a class from the archive
+Preconditions:
+• • • •
+The user is logged into the system as Administrator The user has run the use case "View Class Details" The user views the detailed information of a class The user Click on the "Delete" button
+Sequence of events
+User
+System
+1. Delete the class from the archive
+2. View the updated class list
+Postconditions:
+• The user has deleted a class • Connection to the SMOS server interrupted
+<<< SMOS16.txt
+
+>>> SMOS17.txt
+Name: ViewList of Addresses
+Actors: Administrator
+Description: Allows you to view the list of addresses
+Preconditions:
+• The user is logged into the system with the role of Administrator • The user clicks on the "Address Management" button
+Sequence of events
+User
+System
+1. View the list of addresses.
+Postconditions:
+• The system shows the list of addresses in the archive • Connection to the SMOS server interrupted
+<<< SMOS17.txt
+
+>>> SMOS18.txt
+Name: Enter New Address
+Actors: Administrator
+Description: Enters a new address in the archive
+Preconditions:
+• •
+•
+The user is logged in to the system as Administrator The user has already performed the "View Address List" use case and the system is viewing the list of addresses The user clicks the "New Address" button
+Sequence of events
+User
+2. Fill out the form 3. Click on the "Save" button
+System
+1. The system shows the form to be filled with: name address.
+4. Checks the validity of the data entered and enters a new address in the archive; in the event that the data entered is invalid, activate the "Data Error" use case.
+Postconditions:
+• • • •
+The user has entered an address The data error is notified Connection to the SMOS server interrupted The Administrator interrupts the operation
+<<< SMOS18.txt
+
+>>> SMOS19.txt
+Name: ViewDetailsAddress
+Actors: Administrator
+Description: Allows you to view the details of an address
+Preconditions:
+• •
+•
+The user is already logged in The user has already performed the "View Address List" use case and the system is viewing the list of addresses The user clicks the "show address details" button
+Sequence of events
+User
+System
+1. Displays the screen with the details of a single address; in particular: name address.
+Postconditions:
+• The user views detailed information relating to a single address.
+• Connection to the SMOS server interrupted Connection to the SMOS server interrupted
+<<< SMOS19.txt
+
+>>> SMOS20.txt
+Name: Delete Address
+Actors: Administrator
+Description: Delete an address from the archive
+Preconditions:
+• • • •
+The user is logged into the system as Administrator The user has run the use case "View Address Details" The user views the detailed information of an address The user clicks the "Delete" button
+Sequence of events
+User
+System
+1. Check if the address has associated classes; if so, it shows an error message “Could not delete the address, delete the associated classes and try again”, otherwise it deletes the address.
+2. View the updated address list
+Postconditions:
+• The user has deleted an address • Connection to the SMOS server interrupted
+<<< SMOS20.txt
+
+>>> SMOS21.txt
+Name: AssignRemoveTeachings
+Actors: Administrator
+Description: Assigns or removes one or more courses from an address
+Preconditions:
+• • • •
+The user is logged into the system as Administrator The user has run the use case "View Address Details" The user views the detailed information of an address The user clicks on the "Address Teachings" button
+Sequence of events
+User
+2. Select the courses to be assigned or removed from the address
+3. Click on the "Submit" button
+System
+1. Displays a form from which you can add and / or remove courses to the address.
+4. Associate or remove the courses selected at the address.
+5. Go back to viewing the address details.
+Postconditions:
+• • •
+The Administrator interrupts the operation Connection to the SMOS server interrupted The system has changed the teachings relating to the address
+<<< SMOS21.txt
+
+>>> SMOS22.txt
+Name: ViewTeachingList
+Actors: Administrator
+Description: Allows you to view the list of courses
+Preconditions:
+• The user is logged into the system with the role of Administrator • The user clicks on the "Teaching Management" button
+Sequence of events
+User
+System
+1.
+2.
+Search the archive and teachings screen
+View teachings
+courses view the management of
+the list of
+Postconditions:
+• The system shows the list of courses in the archive • Connection to the SMOS server interrupted
+<<< SMOS22.txt
+
+>>> SMOS23.txt
+Name: InsertNewTeaching
+Actors: Administrator
+Description: Adds a new course to the archive
+Preconditions:
+• The user is logged into the system as Administrator • The user has already run the use case "ViewList of Teachings" and the
+the system is viewing the list of courses • The user clicks on the "New Course" button
+Sequence of events
+User
+2. Fill out the form 3. Click on the "Save" button
+System
+1. The system shows the form to fill in with: name of the course.
+4. Checks the validity of the data entered and enters the new course in the archive; in the event that the data entered is invalid, activate the "Data Error" use case.
+Postconditions:
+• • • •
+The user has entered a course The error is notified Connection to the SMOS server interrupted The Administrator interrupts the operation
+<<< SMOS23.txt
+
+>>> SMOS24.txt
+Name: ShowTeachingDetails
+Actors: Administrator
+Description: Allows you to view the details of a course
+Preconditions:
+• The user has already logged in • The user has already run the use case "View List of Teachings" and the
+the system is viewing the list of courses • The user clicks on the "course details" button
+Sequence of events
+User
+System
+1. Displays the detail screen of a single course.
+Postconditions:
+• The user views the detailed information of a single course • Connection to the SMOS server interrupted
+<<< SMOS24.txt
+
+>>> SMOS25.txt
+Name: EditTeaching
+Actors: Administrator
+Description: Edit details of a course
+Preconditions:
+• The user is logged into the system as an Administrator • The user has run the use case "View Teaching Details" • The user views the detailed information of a course • The user modifies one of the information contained in the training form
+display of teaching details
+Sequence of events
+User
+System
+1. Click on the "Save" button
+2. Carry out checks on the validity of the data entered and modify the teaching in the archive; in the event that the data entered is invalid, activate the "Data Error" use case.
+3. View the updated course list
+Postconditions:
+• • • •
+The user has modified a course The data error is notified Connection to the SMOS server interrupted The Administrator interrupts the operation
+<<< SMOS25.txt
+
+>>> SMOS26.txt
+Name: DeleteTeaching
+Actors: Administrator
+Description: Delete a course from the archive
+Preconditions:
+• • • •
+The user is logged into the system as Administrator The user has run the use case "ViewDetailsTeaching" The user views the detailed information of a course The user clicks the "Delete" button
+Sequence of events
+User
+System
+1. Delete the teaching from the archive
+2. View the updated course list
+Postconditions:
+• The user has deleted a course • Connection to the SMOS server interrupted
+<<< SMOS26.txt
+
+>>> SMOS27.txt
+Name: ViewList of Logs
+Actors: Administrator
+Description: Displays the list of records for an academic year
+Preconditions:
+• The user must be logged into the system as Administrator • Click on the "Digital Register" button
+Sequence of events
+User
+System
+2. Select the school year
+1. Show a screen for selecting the academic year of interest.
+3. Search the archive for all the digital registers of that year and view them associated with the class they belong to.
+Postconditions:
+•
+• •
+The system is displaying the list of registers referring to a particular academic year The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS27.txt
+
+>>> SMOS28.txt
+Name: ViewDetailsSingleRegister
+Actors: Administrator
+Description: Displays the details of one of the class registers
+Preconditions:
+• • •
+The user must be logged into the system as an Administrator The user must have completed the use case "ViewList of Registers" Click on the "Details" button associated with one of the registers.
+Sequence of events
+User
+System
+1. View the information contained in the log organized by date on the screen. In particular, it shows, for today's date, the list of pupils, specifying: absent / present, late entries and a form from which it is possible to manage justifications and disciplinary notes.
+Postconditions:
+• The system is viewing the details of a class register • Connection to the SMOS server is lost
+<<< SMOS28.txt
+
+>>> SMOS29.txt
+Name: Enter AbsencesAdmin
+Actors: Administrator
+Description: Digitization of the Register, data entry by the Administrator
+Preconditions:
+• • •
+The user must be logged in to the system as Administrator The user has carried out the use case "ViewDetailsSingleRegister" Select the date on which he wants to enter the information.
+Sequence of events
+User
+System
+2. Fill out the form by inserting absent / present students and click "Save"
+1. Refresh the displayed screen according to the date
+3. Send the data to the server. For each absence, the server sends a notification e-mail to the pupil's parent.
+4. View updated log data.
+Postconditions:
+• The absences and delays data have been entered into the system, and the system has sent notifications to the parents. The system remains on the log screen.
+• The administrator interrupts the operation. • Connection to the SMOS server interrupted.
+<<< SMOS29.txt
+
+>>> SMOS30.txt
+Name: EnterAdmin Delays
+Actors: Administrator
+Description: Digitization of the Register, data entry by the Administrator
+Preconditions:
+• • •
+The user must be logged in to the system as Administrator The user has carried out the use case "ViewDetailsSingleRegister" Select the date on which he wants to enter the information.
+Sequence of events
+User
+System
+2. Fill out the form by inserting late students and click "Save"
+1. Refresh the displayed screen according to the date
+3. Send the data to the server.
+4. View updated log data.
+Postconditions:
+• Delay data has been entered into the system, and the system has sent notifications to the parents. The system remains on the log screen.
+• The administrator interrupts the operation. • Connection to the SMOS server interrupted.
+<<< SMOS30.txt
+
+>>> SMOS31.txt
+Name: Change Absence
+Actors: Administrator
+Description: Change of absences by the Administrator. The change is to be understood as the insertion / cancellation of the absence.
+Preconditions:
+• • •
+The user must be logged in to the system as an Administrator The user has carried out the use case "ViewDetailsSingleRegister" Select the date on which you want to change an absence
+Sequence of events
+User
+System
+2. Modify the absence (Insert or Delete) and click "Save"
+1. Refresh the screen based on the selected date
+3. Send the modified data to the server. The system sends a correction email to the pupil's parent.
+Postconditions:
+• The system changed the selected absence and sent the parents a notification of the change. The system remains on the log screen.
+• The administrator interrupts the operation • Connection to the SMOS server interrupted
+<<< SMOS31.txt
+
+>>> SMOS32.txt
+Name: Change Delay
+Actors: Administrator
+Description: Administrator modification of a delay
+Preconditions:
+• • •
+The user must be logged into the system as an Administrator The user has carried out the use case "ViewDetailsSingleRegister" Select the date on which you want to change the delay
+Sequence of events
+User
+System
+2. The user changes the delay and clicks on "Save"
+1. Refresh the screen based on the selected date
+3. The system sends the modified data to the server.
+Postconditions:
+• The system has changed the delays on the date entered. The system remains on the log screen.
+• The administrator interrupts the operation • Connection to the SMOS server interrupted
+<<< SMOS32.txt
+
+>>> SMOS33.txt
+Name: Delete Delay
+Actors: Administrator
+Description: Elimination of a delay by the Administrator
+Preconditions:
+• • •
+The user must be logged in to the system as Administrator The user has done the use case “ViewDetailsSingleRegister” Select the date on which you want to eliminate a delay.
+Sequence of events
+User
+System
+2. Delete a student's late entry and click "Save"
+1. Refresh the screen based on the selected date
+3. Eliminate late entry from the archive.
+Postconditions:
+• The system has eliminated the delay. The system remains on the log screen.
+• The administrator interrupts the operation • Connection to the SMOS server interrupted
+<<< SMOS33.txt
+
+>>> SMOS34.txt
+Name: ViewGiustificalList
+Actors: Administrator
+Description: Displays the list of justifications
+Preconditions:
+• • •
+The user must be logged in to the system as Administrator The user has carried out the use case "ViewDetailsSingleRegister" Click the "Justify" button for a student
+Sequence of events
+User
+System
+1. Show all the absences of the pupil
+registered school selected Absences already justified come
+displayed in green, those to be justified in red
+during the year
+Postconditions:
+• • •
+The system is displaying the list of justifications relating to the student The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS34.txt
+
+>>> SMOS35.txt
+Name: ViewNoteList
+Actors: Administrator
+Description: Displays the list of notes relating to the student
+Preconditions:
+• • •
+The user must be logged into the system as Administrator The user has carried out the use case "ViewDetailsSingleRegister" Click on the "Notes" button associated with a student
+Sequence of events
+User
+System
+1. Show all pupil notes recorded during the school year
+Postconditions:
+• • •
+The system is displaying the list of notes referring to the student The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS35.txt
+
+>>> SMOS36.txt
+Name: Enter Justify
+Actors: Administrator
+Description: Justify Entry
+Preconditions:
+• • • •
+The user must be logged in to the system as Administrator The user has carried out the use case "ViewDetailsSingleRegister" The user has performed the use case "ViewElencoGiustifiche" The user clicks on one of the absences in red
+Sequence of events
+User
+System
+2. Fill out the form 3. Click on "Save"
+1. Show a form in which to insert the fields of the justification (date justifies).
+4. Save justifies it.
+Postconditions:
+• The justification data has been entered into the system. The system returns to the log screen.
+• The administrator interrupts the operation • Connection to the SMOS server interrupted
+<<< SMOS36.txt
+
+>>> SMOS37.txt
+Name: Insert Note
+Actors: Administrator
+Description: Insertion of Disciplinary Notes
+Preconditions:
+• • • •
+The user must be logged in to the system as Administrator The user has carried out the use case "ViewDetailsSingleRegister" The user has already performed the use case "ViewNoteList" The user clicks on the "New note" button
+Sequence of events
+User
+System
+2. Fill out the form 3. Click on "Save"
+1. Show a form with the note fields (student, date, teacher, description).
+4. Save the note and send an email notification to the parent
+Postconditions:
+•
+• •
+The note data was entered into the system, and the system sent the notification to the parents. The system returns to the log screen. The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS37.txt
+
+>>> SMOS38.txt
+Name: ViewDetailsJustify
+Actors: Administrator
+Description: Displays the details of a justification
+Preconditions:
+• • •
+The user must be logged in to the system as Administrator The user has carried out the use case "ViewElencoGiustifiche" Click on one of the absences in green
+Sequence of events
+User
+System
+1. Show a form with the details of the justification and the possibility to modify or delete the justification.
+Postconditions:
+• • •
+The system is displaying the details of a justification. The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS38.txt
+
+>>> SMOS39.txt
+Name: ViewNoteDetails
+Actors: Administrator
+Description: Displays the details of a note
+Preconditions:
+• • •
+The user must be logged in to the system as Administrator The user has carried out the use case "ViewNote List" Click on the "details" button associated with one of the notes
+Sequence of events
+User
+System
+1. Show a form with the details of the note: pupil, description, teacher, date.
+Postconditions:
+• • •
+The system is displaying the details of a note. The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS39.txt
+
+>>> SMOS40.txt
+Name: EditJustify
+Actors: Administrator
+Description: Modification of a Justification
+Preconditions:
+• The user must be logged in to the system as Administrator • The user has carried out the use case "ViewDetailsJustify" and the system is
+viewing the details of a justify
+Sequence of events
+User
+System
+1. Modify one or more fields of the displayed form: date justifies.
+2. Click on "Save"
+3. Edit justifies it.
+Postconditions:
+• • •
+The justification has been changed. The system returns to the log screen. The administrator interrupts the operation Connection to the SMOS server interrupted
+<<< SMOS40.txt
+
+>>> SMOS41.txt
+Name: Edit Note
+Actors: Administrator
+Description: Modification of a Disciplinary Note
+Preconditions:
+• The user must be logged into the system as an Administrator • The user has carried out the use case "ViewDetailsNote"
+Sequence of events
+User
+System
+1. The user modifies one or more fields of the displayed form: Student, description, teacher, date.
+2. The user clicks on "Save"
+3. The system saves the changes
+Postconditions:
+• The note data has been changed. The system returns to the log screen.
+• The administrator interrupts the operation • Connection to the SMOS server interrupted
+<<< SMOS41.txt
+
+>>> SMOS42.txt
+Name: Delete Justify
+Actors: Administrator
+Description: Delete Justify
+Preconditions:
+• The user must be logged in to the system as Administrator • The user has carried out the use case "ViewDetailsJustify" and the
+system is displaying the details of a justify. • Click on "Delete"
+Sequence of events
+User
+System
+1. Eliminate justifies it.
+Postconditions:
+• La giustifica è stata eliminata dal sistema. Il sistema ritorna alla schermata del registro.
+•	L’amministratore interrompe l’operazione •	Connessione al server SMOS interrotta
+<<<SMOS42.txt
+
+>>>SMOS43.txt
+Nome: EliminaNota
+Attori: Amministratore
+Descrizione: Eliminazione Note Disciplinari
+Precondizioni:
+•	L'utente deve essere loggato al sistema come Amministratore • L'utente ha svolto il caso d'uso “VisualizzaDettagliNota” e il sistema sta
+visualizzando I dettagli di una nota •	L'utente clicca il pulsante “Elimina”
+Sequenza degli eventi
+Utente
+Sistema
+1. Il sistema invia una notifica di errata corrige ai genitori dello studente, poi elimina i dati della nota dall’archivio.
+Postcondizioni:
+• La nota è stata cancellata, ed il sistema ha inviato la notifica ai genitori. Il sistema ritorna alla schermata del registro.
+•	L’amministratore interrompe l’operazione •	Connessione al server SMOS interrotta
+<<<SMOS43.txt
+
+>>>SMOS44.txt
+Nome: EffettuaMonitoraggioStudenti
+Attori: Amministratore
+Descrizione: Consente di interrogare il sistema circa il numero di assenze e note associate agli studenti
+Precondizioni:
+•	L’utente è loggato al sistema come amministratore •	L’utente clicca sul pulsante “Monitoraggio Studenti”
+Sequenza degli eventi
+Utente
+Sistema
+1. Cerca nell'archivio gli studenti che abbiano, per l'anno scolastico in corso un numero di assenze e note superiori ad una soglia prestabilita.
+2. Visualizza una schermata di presentazione dei dati ottenuti.
+Postcondizioni: :
+•	Sono state le informazioni circa assenze e note degli alunni. •	Connessione al server SMOS interrotta.
+<<<SMOS44.txt
+
+>>>SMOS45.txt
+Nome: VisualizzazioneDiUnaPagella
+Attori: Amministratore
+Descrizione: Visualizzazione di una pagella
+Precondizioni:
+•	L'utente si è loggato al sistema come Amministratore •	L’utente clicca sul pulsante “Pagelle online”
+Sequenza degli eventi
+Utente
+1. Seleziona l’anno accademico
+3. Sceglie la classe dell'alunno di cui vuole visualizzare la pagella
+5.	Seleziona	l'alunno	e	il quadrimestre di cui visualizzare la pagella cliccando sul relativo pulsante.
+Sistema
+2. Visualizza l’elenco delle classi presenti nel sistema con accanto un pulsante “Pagelle” associato ad ogni classe
+4. Visualizza l'elenco degli alunni della classe scelta dall'utente
+6.	Visualizza la pagella dell'alunno scelto riferita al quadrimestre selezionato.
+Postcondizioni:
+• • •
+Il sistema visualizza la pagella di uno studente L’utente interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS45.txt
+
+>>>SMOS46.txt
+Nome: InserimentoPagella
+Attori: Amministratore
+Descrizione: Inserimento di una pagella di uno studente eseguito dall’Amministratore
+Precondizioni:
+•	L'utente si è loggato al sistema come Amministratore •	L’utente clicca sul pulsante “Pagelle online”
+Sequenza degli eventi
+Utente
+2. Sceglie la classe dell'alunno di cui inserire la pagella
+4. Seleziona l'alunno a cui inserire la pagella cliccando sul relativo tasto
+6. Inserisce i voti della pagella, tutti o in parte, e clicca sul tasto “salva”
+Sistema
+1. Visualizza l’elenco delle classi presenti nel sistema riferito all’anno accademico in corso con accanto un pulsante “Pagelle” associato ad ogni classe
+3. Visualizza l'elenco degli alunni della classe scelta dall'utente
+5. Visualizza il form per l'inserimento di una pagella
+7. Inserisce i voti inseriti nell'archivio e riporta l'utente alla pagina di visualizzazione degli studenti della classe.
+Postcondizioni:
+• • •
+Nel sistema è stata aggiunta la pagella relativa ad un alunno. L’utente interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS46.txt
+
+>>>SMOS47.txt
+Nome: ModificaDiUnaPagella
+Attori: Amministratore
+Descrizione: Caso d’uso per modificare la pagella di un alunno
+Precondizioni:
+• • •
+L'utente si è loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “VisualizzazioneDiUnaPagella ” L’utente clicca sul tasto di modifica
+Sequenza degli eventi
+Utente
+2. Inserisce i nuovi dati e clicca il tasto di conferma
+Sistema
+1. Visualizza il form con i campi da poter modificare tra cui i voti delle diverse materie
+3. Il sistema visualizza un messaggio di conferma e visualizza il form con l'elenco degli alunni
+Postcondizioni:
+• • •
+Una pagella relativa ad un alunno viene modificata L’utente interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS47.txt
+
+>>>SMOS48.txt
+Nome: CancellazioneDiUnaPagella
+Attori: Amministratore
+Descrizione: L’Amministratore elimina una pagella dal sistema
+Precondizioni:
+• • •
+L'utente si è loggato al sistema come Amministratore L'utente ha svolto il caso d'uso “Visualizzazione di una pagella” L’utente clicca sul tasto “cancella”
+Sequenza degli eventi
+Utente
+2. L'utente accetta la cancellazione premendo il tasto di conferma
+Sistema
+1. Il sistema visualizza un form per confermare la cancellazione
+3. Visualizza un messaggio di corretta cancellazione e visualizza il form con l'elenco delle classi
+Postcondizioni:
+•	Una pagella relativa ad un alunno viene cancellata •	Connessione al server SMOS interrotta
+<<<SMOS48.txt
+
+>>>SMOS49.txt
+Nome: VisualizzaRichiesteDiIscrizione
+Attori: Amministratore
+Descrizione: Consente all'amministratore di visualizzare l'elenco delle richieste di iscrizione giunte al sistema
+Precondizioni:
+•	L'utente è loggato al sistema come amministratore •	L'utente clicca sul pulsante “Visualizza Elenco Richieste di Iscrizione”
+presente nella home
+Sequenza degli eventi
+Utente
+Sistema
+1 . Visualizza l'elenco delle iscrizioni ancora da attivare.
+Postcondizioni:
+•
+• •
+L’utente sta visualizzando l'elenco di richieste di iscrizione al sistema da parte degli studenti L'utente interrompe l'operazione Connessione al server SMOS interrotta
+<<<SMOS49.txt
+
+>>>SMOS50.txt
+Nome: AccettaIscrizioneStudente
+Attori: Amministratore
+Descrizione: Consente all'amministratore di accettare l'iscrizione al sistema di uno studente
+Precondizioni:
+•	L'utente ha già svolto il caso d'uso “Visualizza Richieste di Iscrizione” •	L'utente clicca sul pulsante “Accetta” associato ad una richiesta di iscrizione
+Sequenza degli eventi
+Utente
+Sistema
+1 . Attiva il nuovo utente nel sistema.
+2. Visualizza l'elenco delle iscrizioni ancora da attivare
+Postcondizioni:
+• • •
+L’utente ha accettato una richiesta di iscrizione al sistema L'utente interrompe l'operazione Connessione al server SMOS interrotta
+<<<SMOS50.txt
+
+>>>SMOS51.txt
+Nome: RifiutaIscrizioneStudente
+Attori: Amministratore
+Descrizione: Consente all'amministratore di rifiutare l'iscrizione al sistema di uno studente
+Precondizioni:
+•	L'utente ha già svolto il caso d'uso “Visualizza Richieste di Iscrizione” •	L'utente clicca sul pulsante “Rifiuta” associato ad una richiesta di iscrizione
+Sequenza degli eventi
+Utente
+Sistema
+1. Elimina la richiesta di iscrizione al sistema.
+2. Visualizza l'elenco delle iscrizioni ancora da attivare
+Postcondizioni:
+• • •
+L’utente ha rifiutato una richiesta di iscrizione al sistema L'utente interrompe l'operazione Connessione al server SMOS interrotta
+<<<SMOS51.txt
+
+>>>SMOS52.txt
+Nome: Ricerca EntitaAttori: Amministratore
+Descrizione: Consente all'amministratore di ricercare nel sistema tutte le entità caratterizzate dalle keywords inserite
+Precondizioni:
+•	L'utente è loggato al sistema come amministrator •	L'utente inserisce il testo da cercare e clicca sul pulsante “Ricerca”
+Sequenza degli eventi
+Utente
+Sistema
+1	. Visualizza	l'elenco	delle	entità correlate alla keywords ricercate; in particolare vengono mostrate in una lista attiva: Classi, Insegnamenti, Indirizzi, Utenti trovati.
+Postcondizioni:
+• L’utente sta visualizzando una lista attiva di entità corrispondenti alle keyword inserite.
+•	L'utente interrompe l'operazione •	Connessione al server SMOS interrotta
+<<<SMOS52.txt
+
+>>>SMOS53.txt
+Nome: VisualizzaElencoClassi
+Attori: Personale ATA
+Descrizione: Visualizzazione delle classi
+Precondizioni:
+•	L'utente deve essere loggato al sistema come personale ATA
+Sequenza degli eventi
+Utente
+Sistema
+1. Il sistema mostra all'utente una schermata con tutte le classi presenti nel database, con un tasto per accedere al registro di ogni classe.
+Postcondizioni:
+All'utente viene visualizzata una lista da cui scegliere la classe.
+<<<SMOS53.txt
+
+>>>SMOS54.txt
+Nome: InserisciAssenze
+Attori: Personale ATA
+Descrizione: Digitalizzazione del Registro, raccolta dati dal personale ATA classe per classe
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come personale ATA L'utente ha svolto il caso d'uso VisualizzaElencoClassiATA Selezione una classe di cui inserire i dati nel sistema
+Sequenza degli eventi
+Utente
+Sistema
+2. L'utente seleziona gli studenti assenti 3. Clicca su salva
+1. Mostra all'utente una schermata con gli alunni e dei radio button per selezionare se un alunno è assente o presente. Di default l'alunno è presente.
+4. Il sistema invia i dati al server. Il server per ogni assenza invia una e- mail di notifica al genitore dell'alunno.
+Postcondizioni:
+• I dati di assenze sono stati inseriti nel sistema, ed il sistema ha inviato le notifiche ai genitori. All'utente è mostrata di nuovo la schermata iniziale.
+•	Connessione al server SMOS interrotta. •	L’utente interrompe l’operazione.
+<<<SMOS54.txt
+
+>>>SMOS55.txt
+Nome: InserisciRitardiAta
+Attori: Personale ATA
+Descrizione: Digitalizzazione del Registro, raccolta dati dal personale ATA classe per classe
+Precondizioni:
+• • •
+L'utente deve essere loggato al sistema come personale ATA L'utente ha svolto il caso d'uso VisualizzaElencoClassiATA Seleziona una classe di cui inserire i dati nel sistema
+Sequenza degli eventi
+Utente
+Sistema
+2.	L'utente	seleziona	i	ritardi 3. L'utente clicca “Conferma”
+1. Il sistema mostra all'utente una schermata con tutti gli alunni presenti, con a fianco una checkbox “ritardo”. Se selezionata si attivano dei campi di select a lato per selezionare l'ora del ritardo
+4. Il sistema invia i dati al server.
+Postcondizioni:
+•
+• •
+I dati dei ritardi sono stati inseriti nel sistema. All'utente è mostrata di nuovo la schermata iniziale. Connessione al server SMOS interrotta. L’utente interrompe le operazioni.
+<<<SMOS55.txt
+
+>>>SMOS56.txt
+Nome: VisualizzaElencoClassiDocente
+Attori: Docente
+Descrizione: Il presente caso d'uso consente ad un docente di visualizzare l'elenco delle classi in cui insegna
+Precondizioni:
+•	L’utente è loggato al sistema come docente •	L’ utente clicca il pulsante “Registro Digitale”
+Sequenza degli eventi
+Utente
+Sistema
+2. Seleziona l'anno accademico di interesse.
+1. Visualizza l'elenco degli anni accademici in cui è presente almeno una classe in cui il docente insegna.
+3. Visualizza le classi associate all'anno scolastico selezionato.
+Postcondizioni:
+•	E’ stata mostrata la lista di tutte le classi in cui insegna il docente •	Connessione al server SMOS interrotta.
+<<<SMOS56.txt
+
+>>>SMOS57.txt
+Nome: VisualizzaRegistro
+Attori: Docente
+Descrizione: Visualizzazione del registro di classe
+Precondizioni:
+•	L’utente è loggato al sistema come docente • L’ utente ha svolto il caso d’ uso “VisualizzaElencoClassi” e il sistema sta
+visualizzando l’ elenco di tutte le classi in cui insegna •	L’ utente clicca sul pulsante “Registro” associato ad una delle classi
+Sequenza degli eventi
+Utente
+Sistema
+1.	Visualizza	le	informazioni relative al registro di classe ed in particolare:Data, Assenze, Note disciplinari, Ritardi e Giustifiche.
+Postcondizioni: :
+•	Sono state mostrate le informazioni relative al registro di classe •	Connessione al server SMOS interrotta.
+<<<SMOS57.txt
+
+>>>SMOS58.txt
+Nome: VisualizzazioneDiUnaPagellaDocente
+Attori: Docente
+Descrizione: Visualizzazione di una pagella
+Precondizioni:
+•	L'utente si è loggato al sistema come Docente •	L’utente clicca sul pulsante “Pagelle on-line”
+Sequenza degli eventi
+Utente
+Sistema
+2. Seleziona l'anno accademico di interesse.
+4.	Seleziona	una	delle	classi visualizzate.
+6. Seleziona l'alunno di cui visualizzare la pagella e il quadrimestre di riferimento	cliccando	sull'apposito pulsante.
+1	. Visualizza	l'elenco	degli	anni accademici in cui è presente almeno una classe in cui il docente insegna.
+3. Visualizza le classi associate all'anno scolastico selezionato.
+5. Visualizza l'elenco degli alunni della classe scelta dall'utente
+7. Visualizza la pagella dell'alunno scelto	riferita	al	quadrimestre specificato.
+Postcondizioni:
+• • •
+Il sistema visualizza la pagella di uno studente L’utente interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS58.txt
+
+>>>SMOS59.txt
+Nome: VisualizzazioneDiUnaPagellaStudente
+Attori: Studente
+Descrizione: Viene visualizzata la pagella dell’alunno che lo richiede
+Precondizioni:
+•	L'utente si è loggato al sistema come Studente •	L’utente clicca su “pagella online”
+Sequenza degli eventi
+Utente
+Sistema
+2. Seleziona la pagella di interesse
+1. Il sistema visualizza le pagelle dello studente loggato presenti in archivio
+3. Visualizza i dettagli della pagella selezionata
+Postcondizioni:
+•	Il sistema visualizza la pagella di un alunno •	Connessione al server SMOS interrotta
+<<<SMOS59.txt
+
+>>>SMOS60.txt
+Nome: VisualizzaDatiScolasticiStudente
+Attori: Studente
+Descrizione: Visualizzazione delle informazioni scolastiche riguardanti l’ utente
+Precondizioni:
+•	L’utente è loggato al sistema come studente •	L’utente clicca il pulsante “Registro Digitale”
+Sequenza degli eventi
+Utente
+Sistema
+1.
+2.
+Cerca nell’ archivio i dati relativi al registro della classe a cui appartiene lo studente
+Visualizza i dati relativi allo studente ed in particolare: Data, Assenze, Note disciplinari, Ritardi e Giustifiche.
+Postcondizioni:
+•	Sono stati mostrati i dati del registro di classe relativi allo studente •	Connessione al server SMOS interrotta
+<<<SMOS60.txt
+
+>>>SMOS61.txt
+Nome: VisualizzaDatiStudenti
+Attori: Genitore
+Descrizione: Il presente caso d'uso consente ad un genitore di visualizzare le informazioni relative ai propri figli
+Precondizioni:
+•	L’utente è loggato al sistema come genitore •	L’ utente clicca il pulsante “Registro” associato ad uno dei suoi figli
+Sequenza degli eventi
+Utente
+Sistema
+1. Visualizza	una	tabella riassuntiva con le informazioni relative	ai	figli	ed	in particolare:Data, Assenze, Note disciplinari,	Ritardi	e Giustifiche.
+Postcondizioni:
+•	Sono state mostrate le informazioni relative ad uno dei figli dell’ utente •	Connessione al server SMOS interrotta
+<<<SMOS61.txt
+
+>>>SMOS62.txt
+Nome: VisualizzazioneDiUnaPagella
+Attori: Genitore
+Descrizione: Viene visualizzata la pagella dell’alunno richiesto
+Precondizioni:
+•	L'utente si è loggato al sistema come Genitore •	L’utente clicca sul pulsante pagella associato ad uno dei suoi figli
+Sequenza degli eventi
+Utente
+Sistema
+2. Seleziona la pagella di interesse
+1. Visualizza le pagelle dello studente selezionato
+3. Visualizza i dettagli della pagella selezionata
+Postcondizioni:
+•	Il sistema visualizza la pagella di uno studente •	Connessione al server SMOS interrotta
+<<<SMOS62.txt
+
+>>>SMOS63.txt
+Nom: EffettuaMonitoraggioStudenti
+Attori: Direzione
+Descrizione: Consente di visualizzare gli studenti con un numero di note e assenze superiore ad una soglia indicata dall'utente
+Precondizioni:
+•	L’utente è loggato al sistema come direzione •	L’ utente clicca sul pulsante “Monitoraggio Studenti”
+Sequenza degli eventi
+Utente
+Sistema
+1. Cerca gli studenti con un numero di assenze e note superiori alla soglia stabilita.
+2.	Visualizza	le	informazioni recuperate.
+Postcondizioni: :
+•	Sono state visualizzate le informazioni inerenti i dati raccolti •	Connessione al server SMOS interrotta.
+<<<SMOS63.txt
+
+>>>SMOS64.txt
+Nome: VisualizzaElencoRegistri
+Attori: Direzione
+Descrizione: Visualizza l’elenco dei registri per un anno accademico
+Precondizioni:
+•	L'utente deve essere loggato al sistema come Direzione •	L’ utente clicca sul pulsante “Registro Digitale”
+Sequenza degli eventi
+Utente
+Sistema
+2. Seleziona l’anno accademico
+1.Mostra una schermata per la selezione dell’anno accademico di interesse.
+3. Cerca nell’archivio tutti i registri digitali di quell’anno e li visualizza associati alla classe cui appartengono
+Postcondizioni:
+•
+• •
+Il sistema sta visualizzando l’elenco dei registri riferiti ad un particolare anno accademico La direzione interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS64.txt
+
+>>>SMOS65.txt
+Nome: VisualizzaRegistro
+Attori: Direzione
+Descrizione: Dettagli relativi al registro di una classe
+Precondizioni:
+• •
+•
+L’ utente è loggato al sistema direzione L’ utente ha svolto il caso d’ uso “VisualizzaElencoRegistri” e il sistema sta visualizzando l’ elenco di tutti i registri di un particolare anno accademico L’utente clicca il pulsante “Registro” associato ad una delle classi
+Sequenza degli eventi
+Utente
+Sistema
+1. Visualizza	a	video	le informazioni	contenute	nel registro organizzate per data. In particolare mostra, per la data selezionata	l’elenco	degli alunni,	specificando: assenti/presenti,	entrate	in ritardo ed un form dal quale è possibile gestire giustifiche e note disciplinari.
+Postcondizioni:
+•	Sono state mostrate le informazioni relative al registro di classe •	Connessione al server SMOS interrotta
+<<<SMOS65.txt
+
+>>>SMOS66.txt
+Nome: VisualizzazioneDiUnaPagella
+Attori: Direzione
+Descrizione: Visualizzazione di una pagella
+Precondizioni:
+•	L'utente si è loggato al sistema come Direzione •	L’utente clicca sul pulsante “Pagelle online”
+Sequenza degli eventi
+Utente
+Sistema
+1. Seleziona l’anno accademico
+3 . Sceglie la classe dell'alunno di cui vuole visualizzare la pagella
+5. Seleziona l'alunno di cui visualizzare la pagella e il quadrimestre di interesse cliccando sul relativo tasto
+2. Visualizza l’elenco delle classi presenti nel sistema con accanto un pulsante “Pagelle” associato ad ogni classe
+4. Visualizza l'elenco degli alunni della classe scelta dall'utente
+6. Visualizza la pagella dell'alunno scelto	riferita	al	semestre selezionato.
+Postcondizioni:
+• • •
+Il sistema visualizza la pagella di uno studente L’utente interrompe l’operazione Connessione al server SMOS interrotta
+<<<SMOS66.txt
+
+>>>SMOS67.txt
+Nome: RegistrazioneAlSito
+Attori: Visitatore
+Descrizione: Consente ad uno studente di registrarsi al sistema
+Precondizioni:
+•	L'utente clicca sul pulsante “Registrati” presente nella home page
+Sequenza degli eventi
+Utente
+Sistema
+2. Riempie i campi del form 3. Sottomette il form
+1 . Visualizza il form di registrazione contenente: Nome, Cognome, Cellulare, e-mail, username, password, conferma password.
+4. Inserisce la richiesta di iscrizione nel sistema
+Postcondizioni:
+• • •
+L’utente ha effettuato richiesta di iscrizione al sistema L'utente interrompe l'operazione Connessione al server SMOS interrotta
+<<<SMOS67.txt
+
